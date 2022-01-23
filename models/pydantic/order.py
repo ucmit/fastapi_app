@@ -1,7 +1,6 @@
 # pydantic - для валидации(Проверка на соответствие) и парсинга(Анализ) данных 
 from pydantic import BaseModel, validator
-from typing import List
-from .user import User
+
 
 class ItemBase(BaseModel):
     name: str
@@ -36,12 +35,11 @@ class Item(ItemBase):
     
     class Config:
         orm_mode = True
-    # Кастомный валидатор на проверку наличия кириллицы
 
 
 # Базовый класс для моделей Order
 class OrderBase(BaseModel):
-    user_id: int
+    user_id: int # Пользователь связанный с заказом
     delivery_date: str
     commentary: str = ""
 
@@ -86,7 +84,6 @@ class OrderCreate(OrderBase):
 # Представление модели Order из БД
 class Order(OrderBase):
     id: int
-    # user: User = None  # Пользователь связанный с заказом
 
     class Config:
         orm_mode = True

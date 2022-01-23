@@ -14,7 +14,7 @@ class User_DB(Base):
     email = Column(String)
     birthdate = Column(String)
 
-    orders = relationship("Order_DB", back_populates='users')
+    orders = relationship("Order_DB", back_populates='user')
 
 # Расписать модель Item для БД
 class Item_DB(Base):

@@ -6,7 +6,7 @@ from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 
 # Настроечная переменная с адресом нашего БД
-SQLALCHEMY_DATABASE_URL = 'sqlite:///./sql_db.db'
+SQLALCHEMY_DATABASE_URL = 'sqlite:///./market.db'
 
 # Подключаемся к нашему БД
 engine = create_engine(
