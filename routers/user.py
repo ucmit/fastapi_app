@@ -23,7 +23,7 @@ users = [
     {
         "username": "cab_lab_dab",
         "password": "123QWEasd!",
-        "email": "cabina@gmail.com",
+        "email": "cabina@gmail.com"
     },
     {
         "username": "tvoy_drug",

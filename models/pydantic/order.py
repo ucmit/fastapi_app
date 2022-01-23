@@ -1,4 +1,5 @@
 # pydantic - для валидации(Проверка на соответствие) и парсинга(Анализ) данных 
+from typing import List
 from pydantic import BaseModel, validator
 
 
@@ -40,8 +41,9 @@ class Item(ItemBase):
 # Базовый класс для моделей Order
 class OrderBase(BaseModel):
     user_id: int # Пользователь связанный с заказом
-    delivery_date: str
+    delivery_date: str = "01.01.2022"
     commentary: str = ""
+    item_ids = List[int]
 
 # Класс при создании модели в БД
 class OrderCreate(OrderBase):

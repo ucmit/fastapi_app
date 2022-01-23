@@ -1,6 +1,6 @@
 from .database import Base
 # Импорт базовых типов БД
-from sqlalchemy import Column, Integer, String, Float, ForeignKey
+from sqlalchemy import Column, Integer, String, Float, ForeignKey, ARRAY
 from sqlalchemy.orm import relationship
 
 # Расписать модель User для БД
@@ -13,6 +13,7 @@ class User_DB(Base):
     password = Column(String)
     email = Column(String)
     birthdate = Column(String)
+
 
     orders = relationship("Order_DB", back_populates='user')
 
@@ -31,6 +32,7 @@ class Order_DB(Base):
 
     id = Column(Integer, primary_key=True)
     user_id = Column(Integer, ForeignKey('users.id'))  # Внешний ключ на таблицу users
+    item_ids = Column(ARRAY(Integer)) # позиции в заказе
     delivery_date = Column(String)
     commentary = Column(String)
 
